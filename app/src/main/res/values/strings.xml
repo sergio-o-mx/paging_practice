@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PagingPractice</string>
+
+    <string name="search_title">Image Search</string>
+    <string name="detail_title">Image Detail</string>
+    <string name="search_string">Search</string>
+
+    <string name="search_view_hint">Type keyword here</string>
+    <string name="default_content_description">Image container</string>
+</resources>
