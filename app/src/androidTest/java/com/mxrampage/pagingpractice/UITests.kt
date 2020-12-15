@@ -13,8 +13,7 @@ import androidx.test.espresso.intent.matcher.IntentMatchers.hasComponent
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.mxrampage.pagingpractice.detail.DetailActivity
-import com.mxrampage.pagingpractice.search.SearchActivity
+import com.mxrampage.pagingpractice.detail.DetailFragment
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -26,8 +25,8 @@ class UITests {
     private lateinit var query: String
 
     @get:Rule
-    var activityRule: ActivityScenarioRule<SearchActivity> =
-        ActivityScenarioRule(SearchActivity::class.java)
+    var activityRule: ActivityScenarioRule<MainActivity> =
+        ActivityScenarioRule(MainActivity::class.java)
 
     @Before
     fun initValidString() {
@@ -52,7 +51,7 @@ class UITests {
         onView(withId(R.id.recyclerSearch))
             .perform(actionOnItemAtPosition<RecyclerView.ViewHolder>(0, click()))
 
-        intended(hasComponent(DetailActivity::class.simpleName))
+        intended(hasComponent(DetailFragment::class.simpleName))
         Intents.release()
     }
 }

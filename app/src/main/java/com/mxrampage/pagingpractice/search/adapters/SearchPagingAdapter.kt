@@ -1,13 +1,15 @@
-package com.mxrampage.pagingpractice.search
+package com.mxrampage.pagingpractice.search.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import com.mxrampage.pagingpractice.R
 import com.mxrampage.pagingpractice.models.DefaultResponseModel
 
-class SearchAdapter: ListAdapter<DefaultResponseModel, SearchViewHolder>(SearchDiffCallback()) {
+class SearchPagingAdapter : PagingDataAdapter<DefaultResponseModel, SearchViewHolder>(
+    SearchPagingCallback()
+) {
     var onItemClick: ((DefaultResponseModel) -> Unit) = {}
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SearchViewHolder {
@@ -16,10 +18,10 @@ class SearchAdapter: ListAdapter<DefaultResponseModel, SearchViewHolder>(SearchD
     }
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
-        holder.bind(getItem(position), onItemClick)
+        getItem(position)?.let { holder.bind(it, onItemClick) }
     }
 
-    internal class SearchDiffCallback : DiffUtil.ItemCallback<DefaultResponseModel>() {
+    internal class SearchPagingCallback : DiffUtil.ItemCallback<DefaultResponseModel>() {
         override fun areItemsTheSame(oldItem: DefaultResponseModel, newItem: DefaultResponseModel): Boolean {
             return oldItem.id == newItem.id
         }

@@ -10,12 +10,6 @@ import com.mxrampage.pagingpractice.models.DefaultResponseModel
 import com.mxrampage.pagingpractice.network.APIService
 import javax.inject.Inject
 
-/*class SearchRepository @Inject constructor(
-    private val apiService: APIService
-) {
-    suspend fun searchPhotos(query: String, page: Int) =
-        apiService.searchPhotos(query, page)
-}*/
 class SearchRepository @Inject constructor(
     private val apiService: APIService
 ) {

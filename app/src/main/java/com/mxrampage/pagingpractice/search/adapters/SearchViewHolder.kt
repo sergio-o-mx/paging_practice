@@ -1,4 +1,4 @@
-package com.mxrampage.pagingpractice.search
+package com.mxrampage.pagingpractice.search.adapters
 
 import android.view.View
 import android.widget.ImageView

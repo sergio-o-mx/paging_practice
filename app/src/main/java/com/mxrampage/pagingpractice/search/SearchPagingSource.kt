@@ -3,11 +3,11 @@ package com.mxrampage.pagingpractice.search
 import androidx.paging.PagingSource
 import com.mxrampage.pagingpractice.models.DefaultResponseModel
 import com.mxrampage.pagingpractice.network.APIService
+import com.squareup.moshi.JsonDataException
 import retrofit2.HttpException
 import java.io.IOException
-import javax.inject.Inject
 
-class SearchPagingSource (private val apiService: APIService, private val query: String) :
+class SearchPagingSource(private val apiService: APIService, private val query: String) :
     PagingSource<Int, DefaultResponseModel>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, DefaultResponseModel> {
         val page = params.key ?: 1
@@ -21,6 +21,8 @@ class SearchPagingSource (private val apiService: APIService, private val query:
         } catch (exception: IOException) {
             LoadResult.Error(exception)
         } catch (exception: HttpException) {
+            LoadResult.Error(exception)
+        } catch (exception: JsonDataException) {
             LoadResult.Error(exception)
         }
     }

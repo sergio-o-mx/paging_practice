@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.mxrampage.pagingpractice.search.SearchActivity"
+            android:name="com.mxrampage.pagingpractice.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,7 +24,7 @@
                 android:value=".search.SearchableActivity" />
         </activity>
         <activity
-            android:name="com.mxrampage.pagingpractice.detail.DetailActivity"
+            android:name="com.mxrampage.pagingpractice.detail.DetailFragment"
             android:screenOrientation="portrait" />
         <activity android:name="com.mxrampage.pagingpractice.search.SearchableActivity" >
             <intent-filter>
